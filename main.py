@@ -153,7 +153,9 @@ def index():
     elif permission == 'foster':
         return redirect(url_for('foster_upload'))
     else:
-        return "User not in system"
+        return redirect(url_for('intake_upload'))
+
+#        return "User not in system"
 
     # form = LoginForm()
     # return render_template('index.html', title='Sign In', form=form)
