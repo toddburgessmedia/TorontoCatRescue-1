@@ -1,0 +1,8 @@
+"FosterHomeID"	"FosterName"	"Address"	"City"	"PostalCode"	"PhoneNumber"	"MajorIntersection"	"Experience"	"Notes"	"Email"	"AdoptionCounsellor"	"FosterCoordinatorID"
+1	"Jennifer King"	"123 Fake Street"	"Toronto"	"M3A 3Y7"	"416-555-2020"	"King and Jarvis"	"No"	"New Foster"	"jenking@emai.com"	"Sierra Smith"	2
+2	"Eddie Chan"	"5 Main Street"	"Thornhill"	"L2B 2B9"	"905-555-3489"	"Bathurst and John"	"Yes"		"eddie@email.com"	"Sierra Smith"	2
+3	"Flannery Lister"	"2 Oak St. Apt 2"	"Toronto"	"M2W 6B8"	"647-555-2345"	"Dundas and Dufferin"	"Yes"	"No kittens"	"flannery@email.com"	"Ariel Downs"	3
+4	"Carl Perez"	"34 Ossington Av"	"Toronto"	"M5F 5C6"	"647-555-2222"	"Ossington and Queen"	"No"	"Has dog"	"carlperez@nomail.com"	"Ariel Downs"	2
+5	"Jeanette Goodfellow"	"99 Pine Valley Way"	"Toronto"	"M3D 2S4"	"647-555-2967"	"Markham and Eglinton"			"jeaneette@nomail.com"	"Sierra Smith"	3
+6	"Lily Merta"	"525 Dundas St. W Apt 2a"	"Toronto"	"M3A 3Y7"	"905-555-3489"	"Dundas and Spadina"	"No"		"lilly@myemail.com"	"Ariel Downs"	3
+7	"Noa Murphy"	"23 Allen Court"	"Pickering"	"L4F 5G7"	"905-555-3480"	"Hwy 2 and Whites Rd"	"No"		"noa@someemail.com"	"Sierra Smith"	2

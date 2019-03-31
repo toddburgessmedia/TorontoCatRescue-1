@@ -1,0 +1,11 @@
+CatID	CatName	Age	DateOfBirth	Sex	Description	ProposalDate	ShelterName	ShelterID	PetPointID	Microchip	ToPost	Posted	ImageURI	FIVStatus	FLVStatus	FVRCPDate	RabiesDate	MedicalNotes	BehaviousNotes	Status	Outcome	IntakeDate	CurrentLocation	FamilyID
+1	Fluffy	4	2015-05-12	M	DSH - Black	2019-02-14	Toronto Animal Services	A826176	A40230199		N	N		Negative	Negative	2019-03-12	2019-03-12	Treated for URI at DD		Foster		2019-02-15	Foster Home	
+2	Midnight	1	2018-05-12	M	DSH – Black	2019-02-14	Toronto Animal Services	A826111	A40230199		n	n		Negative	Negative	2019-03-12	2019-03-14		Shy	Foster		2019-02-15	Foster Home	
+3	Mr. Bojangles	7w	2019-01-12	M	DSH – Brown Tabby	2019-03-01	Toronto Animal Services	A826133	A40230199		N	N		Unknown	Unknown					Foster		2019-03-02	Foster Home	1
+4	Princess	7w	2019-01-12	F	DSH – Brown Tabby	2019-03-01	Toronto Animal Services	A126176	A40230199		N	N		Unknown	Unknown					Foster		2019-03-02	Foster Home	1
+5	Bandit	7w	2019-01-12	M	DSH – Brown/White Tabby	2019-03-01	Toronto Animal Services	A826172	A40230199		N	N		Unknown	Unknown					Foster		2019-03-02	Foster Home	1
+6	Lannister	3	2016-06-08	F	DSH – Dilute Tortie	2019-02-20	Toronto Animal Services	A826276	A40230199		Y	N		Unknown	Unknown	2019-02-01	2019-02-01			Foster		2019-02-20	Foster Home	
+7	Ms. Cat	8	2011-10-12	F	DSH – Calico	2018-12-03	LACC	A726176	A40230199		N	N		Negative	Negative	2018-10-12	2018-10-12	Needs dental		Foster		2018-12-07	Foster Home	
+8	Freddy	2	2017-09-11	M	DSH – White	2019-01-03	Toronto Animal Services	A826376	A40230199		N	Y		Negative	Negative	2018-01-01	2018-01-01			Foster		2018-01-02	Foster Home	
+9	Sarah	1	2018-07-03	F	DSH – Black/White	2019-03-11	Toronto Animal Services	A823176	A40230199		N	Y		Negative	Negative	2019-03-20	2019-03-30			Foster		2019-02-15	Foster Home	
+10	Monica	6mo	2018-10-04	F	DSH – Grey Tabby	2019-03-20	Owner Surrender	A126176	A40230199		N	Y		Unknown	Unknown	2019-03-26	2019-03-26	On Doxy for URI	Needs Socialization	Foster		2019-03-12	Foster Home	

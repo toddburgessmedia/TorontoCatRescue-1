@@ -1,0 +1,4 @@
+PetStoreID	StoreName	Address	City	Phone	MoneyPickup	StoreCoordinator	StoreCoordinatorEmail	VolunteerCoordinator	VolunteerCoordinatorEmail	StoreLead
+1	PetSmart – Kennedy Commons	12 William Kitchen Drive	Scarborough	416-555-5699	Tanya Shaw	Pamela Morgan	pamelamorgan@torontocatrescue.ca	Jill Roper	jillroper@torontocatrescue.ca	Diane Saad
+2	PetValu – Liberty Village	899 King Street West	Toronto	416-555-2300	Tanya Shaw	Dani Wescott	daniwescott@torontocatrescue.ca			Diane Saad
+3	Happy Pets	29 Front Street	Toronto	416-555-7777	Tanya Shaw	Beth Rose	bethrose@torontocatrescue.ca	Sam Shaw	samshaw@torontocatrescue.ca	Diane Saad
