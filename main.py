@@ -1,12 +1,21 @@
 import os
-from flask import Flask, session, render_template, redirect, url_for
+from flask import Flask, session, render_template, redirect, url_for,request
 from flask_dance.consumer import oauth_authorized
 from flask_dance.contrib.google import make_google_blueprint, google
 from werkzeug.utils import secure_filename
 from flask_wtf import CsrfProtect
 from form_classes import CatInformation
 from google_sheets import find_permission, input_data, return_database
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session as dbsession
+from sqlalchemy import create_engine
+
 import config
+
+#connect to mariadb
+Base = automap_base()
+engine = create_engine("mysql+pymysql://root:root@localhost/torontocatrescue")
+Base.prepare(engine, reflect=True)
 
 CSRF = CsrfProtect()
 
@@ -38,8 +47,8 @@ def logged_in(blueprint, token):
 
 @APP.route('/shelter_upload', methods=['GET', 'POST'])
 def shelter_upload():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
+    if 'username' not in session:
+        return redirect('/login')
 
     form = CatInformation()
     if form.validate_on_submit():
@@ -65,8 +74,8 @@ def shelter_upload():
 
 @APP.route('/intake_upload', methods=['GET', 'POST'])
 def intake_upload():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
+    if 'username' not in session:
+        return redirect('/login')
 
     form = CatInformation()
     if form.validate_on_submit():
@@ -92,8 +101,8 @@ def intake_upload():
 
 @APP.route('/foster_upload', methods=['GET', 'POST'])
 def foster_upload():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
+    if 'username' not in session:
+        return redirect('/login')
 
     form = CatInformation()
     if form.validate_on_submit():
@@ -118,8 +127,8 @@ def foster_upload():
 
 @APP.route('/database')
 def database():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
+    if 'username' not in session:
+        return redirect('/login')
 
     card = return_database()
     card.pop(0)
@@ -128,34 +137,59 @@ def database():
 
 @APP.route('/waitlist')
 def waitlist():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
+    if 'username' not in session:
+        return redirect('/login')
 
     card = return_database()
     card = [i for i in card if i[20] == "shelter"]
     return render_template('database.html', cards=card, title="wait")
 
+@APP.route('/login', methods=['POST'])
+def post_login():
+	username = request.form['username']
+	password = request.form['password']
+	print("Login: {} {}".format(username,password))
+	if username != None and password != None:
+		print("trying to log in.....")
+		userlogin = Base.classes.UserLogin
+		db_session = dbsession(engine)
+		result = db_session.query(userlogin) \
+			.filter(userlogin.UserName==username, \
+			userlogin.Password==password)
+		if result.first() == None:
+			print("We failed")
+			return render_template('login.html',fail='True',login="true") 
+		else:
+			print("We did it")
+			print("Role: {}".format(result.first().UserRole))
+			session['username'] = username
+			session['role'] = result.first().UserRole
+			return redirect(url_for('intake_upload'))
+	else:
+		return render_template('login.html',fail='True',login="true") 
+	
+@APP.route('/login', methods=['GET'])
+def get_login():
+	return render_template('login.html',login='true') 
 
 @APP.route('/')
 def index():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
+    if 'username' not in session:
+        return redirect('/login')
 
     email = session.get('email')
-    permission = find_permission(email)
+    permission = session.get('role') 
     print(permission)
     print(email)
 
     if permission == 'shelter':
         return redirect(url_for('shelter_upload'))
-    elif permission == 'intake':
+    elif permission == 'intake' or permission == 'admin':
         return redirect(url_for('intake_upload'))
-    elif permission == 'foster':
+    elif permission == 'fostercoordinator':
         return redirect(url_for('foster_upload'))
     else:
-        return redirect(url_for('intake_upload'))
-
-#        return "User not in system"
+        return "User not in system"
 
     # form = LoginForm()
     # return render_template('index.html', title='Sign In', form=form)

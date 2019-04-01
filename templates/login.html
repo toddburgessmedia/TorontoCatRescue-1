@@ -1,0 +1,18 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+{% if fail=='True' %}
+<p class="centre">
+Invalid username and/or password
+</p>
+{% endif %}
+<form action="/login" method="POST">
+Username: <INPUT TYPE="text" name="username" size=20>
+Password:<BR> <INPUT TYPE="password" name="password">
+<BR>
+<INPUT TYPE=SUBMIT>
+</P>
+</form>
+
+{% endblock %}
