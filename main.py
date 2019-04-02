@@ -14,7 +14,7 @@ import config
 
 #connect to mariadb
 Base = automap_base()
-engine = create_engine("mysql+pymysql://root:root@localhost/torontocatrescue")
+engine = create_engine("mysql+pymysql://tcr:tcrdev@localhost/torontocatrescue")
 Base.prepare(engine, reflect=True)
 
 CSRF = CsrfProtect()
