@@ -19,6 +19,8 @@
 -- Table structure for table `Cat`
 --
 
+CREATE DATABASE IF NOT EXISTS torontocatrescue;
+
 DROP TABLE IF EXISTS `Cat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
