@@ -15,11 +15,26 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- Create database
+CREATE DATABASE IF NOT EXISTS torontocatrescue;
+
+-- Create user
+CREATE USER IF NOT EXISTS 'tcr'@'%';
+ALTER USER 'tcr'@'%'
+IDENTIFIED BY 'tcrdev' ;
+GRANT Insert ON torontocatrescue.* TO 'tcr'@'%';
+GRANT Select ON torontocatrescue.* TO 'tcr'@'%';
+GRANT Show view ON torontocatrescue.* TO 'tcr'@'%';
+GRANT Trigger ON torontocatrescue.* TO 'tcr'@'%';
+GRANT Update ON torontocatrescue.* TO 'tcr'@'%';
+GRANT Delete ON torontocatrescue.* TO 'tcr'@'%';
+FLUSH PRIVILEGES;
+
+
 --
 -- Table structure for table `Cat`
 --
 
-CREATE DATABASE IF NOT EXISTS torontocatrescue;
 
 DROP TABLE IF EXISTS `Cat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
