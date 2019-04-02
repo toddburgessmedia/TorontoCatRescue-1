@@ -13,9 +13,14 @@ from sqlalchemy import create_engine
 import config
 
 #connect to mariadb
-Base = automap_base()
-engine = create_engine("mysql+pymysql://tcr:tcrdev@localhost/torontocatrescue")
-Base.prepare(engine, reflect=True)
+try:
+	Base = automap_base()
+	engine = create_engine("mysql+pymysql://tcr:tcrdev@localhost/torontocatrescue")
+	Base.prepare(engine, reflect=True)
+except:
+	print("Unable to connect to mariadb. Please make sure it is running.")
+	print("Shuting down server....")
+	raise RuntimeError("Server aborting due to db down")
 
 CSRF = CsrfProtect()
 
