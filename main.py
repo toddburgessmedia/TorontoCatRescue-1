@@ -153,20 +153,15 @@ def waitlist():
 def post_login():
 	username = request.form['username']
 	password = request.form['password']
-	print("Login: {} {}".format(username,password))
 	if username != None and password != None:
-		print("trying to log in.....")
 		userlogin = Base.classes.UserLogin
 		db_session = dbsession(engine)
 		result = db_session.query(userlogin) \
 			.filter(userlogin.UserName==username, \
 			userlogin.Password==password)
 		if result.first() == None:
-			print("We failed")
 			return render_template('login.html',fail='True',login="true") 
 		else:
-			print("We did it")
-			print("Role: {}".format(result.first().UserRole))
 			session['username'] = username
 			session['role'] = result.first().UserRole
 			return redirect(url_for('intake_upload'))
