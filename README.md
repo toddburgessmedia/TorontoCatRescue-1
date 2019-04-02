@@ -32,3 +32,15 @@ Dependencies:
 
     ## Run app
     python main.py
+
+## MariaDB setup
+
+   Install MariaDB
+   For dev server setup root with password root
+
+   cd db
+   Run script to create database with tables (warning will drop all tables)
+   ./createtable.sh
+
+   Run script to populate database with test data
+   ./populate.sh
